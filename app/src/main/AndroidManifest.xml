@@ -12,6 +12,9 @@
         android:theme="@style/Theme.KaloriTakipUygulamasi"
         tools:targetApi="31">
         <activity
+            android:name=".AnaMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".IlkKayitActivity"
             android:exported="false" />
         <activity

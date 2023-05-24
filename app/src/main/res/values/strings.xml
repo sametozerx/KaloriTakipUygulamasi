@@ -15,8 +15,10 @@
     <string name="BoyGiriniz">CM giriniz...</string>
     <string name="kilo">Kilo:</string>
     <string name="Boy">Boy:</string>
+    <string name="alinanCal">Alınan Kalori:</string>
+    <string name="GerekenCal">Gereken Kalori:</string>
     <string-array name="Cinsiyetler">
-    <item>Erkek</item>
-    <item>Kadın</item>
-</string-array>
+        <item>Erkek</item>
+        <item>Kadın</item>
+    </string-array>
 </resources>

@@ -3,10 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ilkKayitTextInput">#FFFFFFFF</color>
-    <color name="sky_1">#B46060</color>
-    <color name="sky_2">#91D8E4</color>
-    <color name="sky_3">#BFEAF5</color>
-    <color name="dark_1">#03001C</color>
-    <color name="dark_2">#301E67</color>
-    <color name="dark_3">#5B8FB9</color>
+    <color name="sky_1">#C5CAE3</color>
+    <color name="sky_2">#3F72AF</color>
+    <color name="sky_3">#112D4E</color>
+    <color name="dark_1">#112D4E</color>
+    <color name="dark_2">#3F72AF</color>
+    <color name="dark_3">#DBE2EF</color>
 </resources>
