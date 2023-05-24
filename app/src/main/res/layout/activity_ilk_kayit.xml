@@ -85,7 +85,8 @@
         android:hint="@string/adiniziGiriniz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txtTaniyalim">
+        app:layout_constraintTop_toTopOf="@id/txtTaniyalim"
+        app:boxBackgroundColor="@color/ilkKayitTextInput">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputAd"
@@ -103,7 +104,8 @@
         android:hint="@string/yasiniziGiriniz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tfieldAdGir">
+        app:layout_constraintTop_toTopOf="@id/tfieldAdGir"
+        app:boxBackgroundColor="@color/ilkKayitTextInput">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputYas"
@@ -123,7 +125,8 @@
         android:hint="@string/CinsiyetGiriniz"
         app:layout_constraintLeft_toRightOf="@id/tfieldYasGir"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtCinsiyetSec">
+        app:layout_constraintTop_toBottomOf="@id/txtCinsiyetSec"
+        app:boxBackgroundColor="@color/ilkKayitTextInput">
 
         <AutoCompleteTextView
             android:id="@+id/AutoCompleteCinsiyet"
@@ -131,5 +134,90 @@
             android:layout_height="wrap_content"
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtKiloGir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/kilo"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tfieldKiloGir"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tfieldKiloGir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="240dp"
+        android:hint="@string/kiloGiriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tfieldYasGir"
+        app:boxBackgroundColor="@color/ilkKayitTextInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputKilo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtBoyGir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/Boy"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tfieldBoyGir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtKiloGir" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tfieldBoyGir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/BoyGiriniz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tfieldKiloGir"
+        app:layout_constraintTop_toBottomOf="@id/tfieldCinsiyetGir"
+        app:boxBackgroundColor="@color/ilkKayitTextInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputBoy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSonraki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="false"
+        android:text="Devam Et"
+        android:textColor="@color/dark_2"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/baseline_arrow_forward_24"
+        app:iconGravity="end"
+        app:iconTint="@color/dark_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

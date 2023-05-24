@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="ilkKayitTextInput">#FFFFFFFF</color>
     <color name="sky_1">#B46060</color>
     <color name="sky_2">#91D8E4</color>
     <color name="sky_3">#BFEAF5</color>
