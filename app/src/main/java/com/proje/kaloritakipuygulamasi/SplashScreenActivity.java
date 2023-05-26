@@ -25,7 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 else
                 {
                     // Kullaniciyi kayit ekranina götürür.
-                Intent i = new Intent(SplashScreenActivity.this, IlkKayitActivity.class);
+                Intent i = new Intent(SplashScreenActivity.this, AnaMenuActivity.class);
                 startActivity(i);
                 finish();
                 }
