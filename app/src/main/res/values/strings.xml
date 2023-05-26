@@ -6,7 +6,6 @@
     <string name="ad">Ad:</string>
     <string name="Yas">Yaş:</string>
     <string name="yasiniziGiriniz">Yaşınızı giriniz...</string>
-
     <string name="Cinsiyet">Cinsiyet:</string>
     <string name="erkek">Erkek</string>
     <string name="kadin">Kadın</string>
@@ -21,6 +20,8 @@
         <item>Erkek</item>
         <item>Kadın</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="anaMenu">Ana Menü</string>
+    <string name="takvim">Takvim</string>
+    <string name="kullanici">Kullanıcı</string>
+    <string name="ayarlar">Ayarlar</string>
 </resources>
