@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.proje.kaloritakipuygulamasi.databinding.ActivityAnaMenuBinding;
 
@@ -44,6 +45,7 @@ public class AnaMenuActivity extends AppCompatActivity{
 
             return true;
         });
+
     }
 
     private void ReplaceFragment(Fragment fragment){
