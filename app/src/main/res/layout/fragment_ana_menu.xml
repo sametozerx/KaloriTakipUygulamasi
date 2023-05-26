@@ -160,6 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -170,6 +171,24 @@
                     android:gravity="center|top"
                     android:text="@string/Kahvalti" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnKahvaltiEkle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="@string/besinEkle"
+                    android:textColor="@color/black"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/baseline_arrow_forward_24"
+                    app:iconGravity="end"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -178,6 +197,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
@@ -191,6 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -201,6 +222,24 @@
                     android:gravity="center|top"
                     android:text="@string/ogleYemegi" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOgleYemegiEkle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="@string/besinEkle"
+                    android:textColor="@color/black"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/baseline_arrow_forward_24"
+                    app:iconGravity="end"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -208,6 +247,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
@@ -221,6 +261,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -231,6 +272,24 @@
                     android:gravity="center|top"
                     android:text="@string/araOgun" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAraOgunEkle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="@string/besinEkle"
+                    android:textColor="@color/black"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/baseline_arrow_forward_24"
+                    app:iconGravity="end"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -238,6 +297,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
@@ -251,6 +311,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -260,6 +321,24 @@
                     android:layout_weight="1"
                     android:gravity="center|top"
                     android:text="@string/aksamYemegi" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAksamYemegiEkle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="@string/besinEkle"
+                    android:textColor="@color/black"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="16dp"
+                    app:icon="@drawable/baseline_arrow_forward_24"
+                    app:iconGravity="end"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </LinearLayout>
         </LinearLayout>
