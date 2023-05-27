@@ -37,5 +37,5 @@ public interface OgunKayitDao {
     OgunKayit loadOgunKayitByTarihAndKategori(int id, int gun, int ay, int yil, String ad);
 
     @Query("DELETE FROM ogun_kayit WHERE ogunKayitId = :id AND gun = :gun AND ay = :ay AND yil = :yil AND ogun_id IN (SELECT ogun_id FROM ogun WHERE kategori_id IN(SELECT kategori_id FROM ogun_kategori WHERE ogun_kategori_adi = :ad))")
-    OgunKayit deleteOgunKayit(int id, int gun, int ay, int yil, String ad);
+    void deleteOgunKayit(int id, int gun, int ay, int yil, String ad);
 }

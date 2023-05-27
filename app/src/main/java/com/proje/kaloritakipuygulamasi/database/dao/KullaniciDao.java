@@ -33,15 +33,15 @@ public interface KullaniciDao {
     int LoadKullaniciKaloriById(int id);
 
     @Query("UPDATE kullanici set kullanici_adi = :ad WHERE kullaniciId = :id")
-    Kullanici updateKullaniciAdById(String ad, int id);
+    void updateKullaniciAdById(String ad, int id);
 
     @Query("UPDATE kullanici set kullanici_boy = :boy WHERE kullaniciId = :id")
-    Kullanici updateKullaniciBoyById(int boy, int id);
+    void updateKullaniciBoyById(int boy, int id);
 
     @Query("UPDATE kullanici set kullanici_kilo = :kilo WHERE kullaniciId = :id")
-    Kullanici updateKullaniciKiloById(int kilo, int id);
+    void updateKullaniciKiloById(int kilo, int id);
 
     @Query("UPDATE kullanici set kullanici_gereken_kalori = :boy WHERE kullaniciId = :id")
-    Kullanici updateKullaniciKaloriById(int boy, int id);
+    void updateKullaniciKaloriById(int boy, int id);
 
 }
