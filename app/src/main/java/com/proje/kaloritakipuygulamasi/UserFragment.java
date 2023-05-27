@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 public class UserFragment extends Fragment {
 
-    String userInput;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

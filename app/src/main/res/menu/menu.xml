@@ -15,9 +15,4 @@
         android:enabled="true"
         android:icon="@drawable/user"
         android:title="@string/kullanici"> </item>
-
-    <item android:id="@+id/page4"
-        android:enabled="true"
-        android:icon="@drawable/settings"
-        android:title="@string/ayarlar"> </item>
 </menu>
