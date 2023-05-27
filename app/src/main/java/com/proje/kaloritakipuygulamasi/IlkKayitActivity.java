@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -47,6 +48,23 @@ public class IlkKayitActivity extends AppCompatActivity {
         TextInputEditText boyBilgisi = (TextInputEditText) findViewById(R.id.inputBoy);
         AutoCompleteTextView cinsBilgisi = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCinsiyet);
         MaterialButton button = (MaterialButton) findViewById(R.id.btnIlkKayit);
+
+
+        /*
+        // Aşağıdaki kod, ilk kayıt activity'nin çalışıp çalışmadığı test etmek içindir.
+        // List<> li satıra bullet point atıp debug ediniz, kullanıcı kayıtları gelmiş mi, bakınız.
+        // Test dışında açmayınız.
+
+        Button yedekbuton = (Button) findViewById(R.id.yedekbuton);
+
+        yedekbuton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(IlkKayitActivity.this);
+                List<Kullanici> kullanicis = ktdb.kullaniciDao().loadAllKullanicis();
+            }
+        });
+        */
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
