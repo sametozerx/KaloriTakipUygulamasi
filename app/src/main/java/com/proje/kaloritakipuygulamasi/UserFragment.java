@@ -23,7 +23,7 @@ public class UserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
         // isim güncellemesi.
         TextView tv = (TextView) view.findViewById(R.id.varIsimAlani);
-        Button bt = (Button) view.findViewById(R.id.btnIsimDegis);
+        Button bt = (Button) view.findViewById(R.id.btnIlkKayit);
         bt.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
