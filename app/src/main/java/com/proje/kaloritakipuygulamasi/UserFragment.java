@@ -87,6 +87,7 @@ public class UserFragment extends Fragment {
     }
 
     public void userStringCevirme(String st, TextView tv){
+        //TODO: Buradaki st string'i database'e de gidecek.
         tv.setText(st);
     }
 }
