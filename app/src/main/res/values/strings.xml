@@ -39,4 +39,14 @@
     <string name="txtKilo">Kilo:</string>
     <string name="txtYas">Yaş:</string>
     <string name="Degistir">Değiştir</string>
+    <string name="adDegistir">İsim Değiştir</string>
+    <string name="boyDegistir">Boy Değiştir</string>
+    <string name="kiloDegistir">Kilo Değiştir</string>
+    <string name="yasDegistir">Yaş Değiştir</string>
+    <string name="isimGirin">İsim Girin</string>
+    <string name="boyGirin">Boy Girin</string>
+    <string name="kiloGirin">Kilo Girin</string>
+    <string name="yasGirin">Yaş Girin</string>
+    <string name="iptal">İptal</string>
+    <string name="tamam">Tamam</string>
 </resources>
