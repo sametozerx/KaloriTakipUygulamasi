@@ -30,4 +30,23 @@
     <string name="araOgun">Ara Öğün</string>
     <string name="aksamYemegi">Akşam Yemeği</string>
     <string name="besinEkle">Besin Ekle</string>
+    <string name="takvimGunSecin">Günlük Kalori Alımınızı Görmek İçin Gün Seçiniz.</string>
+    <string name="secilenGun">Seçilen Gün:</string>
+    <string name="tarihSec">Tarih Seç</string>
+    <string name="secAlinmisCal">Seçtiğiniz Günde Alınmış Kalori:</string>
+    <string name="txtIsim">İsim:</string>
+    <string name="txtBoy">Boy:</string>
+    <string name="txtKilo">Kilo:</string>
+    <string name="txtYas">Yaş:</string>
+    <string name="Degistir">Değiştir</string>
+    <string name="adDegistir">İsim Değiştir</string>
+    <string name="boyDegistir">Boy Değiştir</string>
+    <string name="kiloDegistir">Kilo Değiştir</string>
+    <string name="yasDegistir">Yaş Değiştir</string>
+    <string name="isimGirin">İsim Girin</string>
+    <string name="boyGirin">Boy Girin</string>
+    <string name="kiloGirin">Kilo Girin</string>
+    <string name="yasGirin">Yaş Girin</string>
+    <string name="iptal">İptal</string>
+    <string name="tamam">Tamam</string>
 </resources>

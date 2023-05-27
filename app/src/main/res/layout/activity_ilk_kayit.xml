@@ -210,11 +210,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSonraki"
+        android:id="@+id/btnIsimDegis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:clickable="false"
+        android:clickable="true"
         android:text="Devam Et"
         android:textColor="@color/black"
         app:backgroundTint="@color/white"

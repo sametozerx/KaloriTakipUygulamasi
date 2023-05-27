@@ -20,14 +20,16 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 if (kullaniciKayitliMi)
                 {
-                    // TODO: Ana menüye bağla.
+                    Intent iTrue = new Intent(SplashScreenActivity.this, AnaMenuActivity.class);
+                    startActivity(iTrue);
+                    finish();
                 }
                 else
                 {
                     // Kullaniciyi kayit ekranina götürür.
-                Intent i = new Intent(SplashScreenActivity.this, AnaMenuActivity.class);
-                startActivity(i);
-                finish();
+                    Intent iFalse = new Intent(SplashScreenActivity.this, IlkKayitActivity.class);
+                    startActivity(iFalse);
+                    finish();
                 }
             }
         },5000);

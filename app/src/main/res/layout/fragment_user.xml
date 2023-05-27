@@ -1,14 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UserFragment">
+    android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:colorSecondary">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="USER FRAGMENT" />
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/kullanicibilgileri"
+                android:layout_width="253dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="32dp"
+                android:text="Kullanıcı Bilgileri"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/kullaniciismi"
+                android:layout_width="71dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginEnd="324dp"
+                android:layout_marginBottom="575dp"
+                android:text="@string/txtIsim"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kullanicibilgileri" />
+
+            <TextView
+                android:id="@+id/varIsimAlani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginBottom="575dp"
+                android:text="isim"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/kullaniciismi"
+                app:layout_constraintTop_toBottomOf="@+id/kullanicibilgileri" />
+
+            <TextView
+                android:id="@+id/kullaniciboyu"
+                android:layout_width="71dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="324dp"
+                android:layout_marginBottom="513dp"
+                android:text="@string/txtBoy"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kullaniciismi" />
+
+            <TextView
+                android:id="@+id/varBoyAlani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginBottom="513dp"
+                android:text="boy"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciboyu"
+                app:layout_constraintTop_toBottomOf="@+id/varIsimAlani" />
+
+            <TextView
+                android:id="@+id/kullanicikilosu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="337dp"
+                android:layout_marginBottom="450dp"
+                android:text="@string/txtKilo"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kullaniciboyu" />
+
+            <TextView
+                android:id="@+id/varKiloAlani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="450dp"
+                android:text="kilo"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/kullanicikilosu"
+                app:layout_constraintTop_toBottomOf="@+id/varBoyAlani" />
+
+            <TextView
+                android:id="@+id/kullaniciyasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="339dp"
+                android:layout_marginBottom="388dp"
+                android:text="@string/txtYas"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kullanicikilosu" />
+
+            <TextView
+                android:id="@+id/varYasAlani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="388dp"
+                android:text="yas"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/kullaniciyasi"
+                app:layout_constraintTop_toBottomOf="@+id/varKiloAlani" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="161dp"
+                android:layout_marginEnd="250dp"
+                android:layout_marginBottom="769dp"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_begin="161dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIsimDegis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/adDegistir"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/user"
+                app:iconGravity="start"
+                app:iconTint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/kullanicibilgileri" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBoyDegis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/boyDegistir"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/user"
+                app:iconGravity="start"
+                app:iconTint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnIsimDegis" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnKiloDegis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/kiloDegistir"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/user"
+                app:iconGravity="start"
+                app:iconTint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnBoyDegis" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnYasDegis"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/yasDegistir"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/user"
+                app:iconGravity="start"
+                app:iconTint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/btnKiloDegis" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

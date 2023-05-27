@@ -38,9 +38,6 @@ public class AnaMenuActivity extends AppCompatActivity{
                 case R.id.page3:
                     ReplaceFragment(new UserFragment());
                     break;
-                case R.id.page4:
-                    ReplaceFragment(new AyarlarFragment());
-                    break;
             }
 
             return true;
