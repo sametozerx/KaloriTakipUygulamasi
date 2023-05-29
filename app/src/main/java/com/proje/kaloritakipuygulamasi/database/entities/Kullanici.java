@@ -27,6 +27,9 @@ public class Kullanici {
     @ColumnInfo(name = "kullanici_gereken_kalori")
     int kullaniciGerekenKalori;
 
+    @PrimaryKey
+    String deviceId;
+
     public int getKullaniciId() {
         return kullaniciId;
     }
@@ -81,5 +84,13 @@ public class Kullanici {
 
     public void setKullaniciGerekenKalori(int kullaniciGerekenKalori) {
         this.kullaniciGerekenKalori = kullaniciGerekenKalori;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 }
