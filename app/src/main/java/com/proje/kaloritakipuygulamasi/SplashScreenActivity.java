@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
+import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
+
+import java.util.List;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     // Aşağıdaki komut satırları, splash screen'den IlkKayitAcitivity'ye geçişi sağlamaktadır.
     Handler h = new Handler();
-    boolean kullaniciKayitliMi = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +23,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (kullaniciKayitliMi)
+                if (KullaniciKaydiVarMi())
                 {
+                    // Kullanici Kaydi var, ana menüye gider.
                     Intent iTrue = new Intent(SplashScreenActivity.this, AnaMenuActivity.class);
                     startActivity(iTrue);
                     finish();
@@ -34,5 +39,19 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             }
         },5000);
+    }
+
+    private boolean KullaniciKaydiVarMi(){
+        // Kullanicinin kaydi varsa true, yoksa false döner.
+        KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(SplashScreenActivity.this);
+        List<Kullanici> kullaniciList = ktdb.kullaniciDao().loadAllKullanicis();
+        if (kullaniciList.isEmpty())
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }
