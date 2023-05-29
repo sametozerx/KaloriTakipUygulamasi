@@ -20,6 +20,7 @@ import java.util.List;
 
 public class UserFragment extends Fragment {
 
+    AnaMenuActivity anaMenuActivity = new AnaMenuActivity();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,24 +28,15 @@ public class UserFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
-
         TextView tv = (TextView) view.findViewById(R.id.varIsimAlani);
         TextView tv2 = (TextView) view.findViewById(R.id.varBoyAlani);
         TextView tv3 = (TextView) view.findViewById(R.id.varKiloAlani);
         TextView tv4 = (TextView) view.findViewById(R.id.varYasAlani);
 
-        if (getArguments()!= null)
-        {
-            String kullaniciAdi = getArguments().getString("isim");
-            Integer kullaniciYasi = getArguments().getInt("yas");
-            Integer kullaniciBoyu = getArguments().getInt("boy");
-            Integer kullaniciKilosu = getArguments().getInt("kilo");
-
-            tv.setText(kullaniciAdi);
-            tv2.setText(kullaniciYasi.toString());
-            tv3.setText(kullaniciKilosu.toString());
-            tv4.setText(kullaniciBoyu.toString());
-        }
+        tv.setText(anaMenuActivity.kullaniciAdi);
+        tv2.setText(anaMenuActivity.kullaniciBoyu.toString());
+        tv3.setText(anaMenuActivity.kullaniciKilosu.toString());
+        tv4.setText(anaMenuActivity.kullaniciYasi.toString());
 
         // Kullanici verileri ekrana yüklenecek.
 
@@ -52,7 +44,7 @@ public class UserFragment extends Fragment {
         bt.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                DegistirmeIslemi(R.string.isimGirin, tv);
+                DegistirmeIslemi(R.string.isimGirin, tv, "isim");
             }
         });
         // boy güncellemesi.
@@ -60,7 +52,7 @@ public class UserFragment extends Fragment {
         bt2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                DegistirmeIslemi(R.string.boyGirin, tv2);
+                DegistirmeIslemi(R.string.boyGirin, tv2, "boy");
             }
         });
         // kilo güncellemesi.
@@ -68,7 +60,7 @@ public class UserFragment extends Fragment {
         bt3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                DegistirmeIslemi(R.string.kiloGirin, tv3);
+                DegistirmeIslemi(R.string.kiloGirin, tv3, "kilo");
             }
         });
         // yaş güncellemesi.
@@ -76,13 +68,13 @@ public class UserFragment extends Fragment {
         bt4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                DegistirmeIslemi(R.string.yasGirin, tv4);
+                DegistirmeIslemi(R.string.yasGirin, tv4, "yas");
             }
         });
         return view;
     }
 
-    public void DegistirmeIslemi(int AlarmStringi, TextView tv)
+    public void DegistirmeIslemi(int AlarmStringi, TextView tv, String hangisi)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(AlarmStringi);
@@ -94,7 +86,7 @@ public class UserFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String user = input.getText().toString();
-                userStringCevirme(user, tv);
+                userStringCevirme(user, tv, hangisi);
             }
         });
 
@@ -107,8 +99,23 @@ public class UserFragment extends Fragment {
         builder.show();
     }
 
-    public void userStringCevirme(String st, TextView tv){
-        //TODO: Buradaki st string'i database'e de gidecek.
-        tv.setText(st);
+    public void userStringCevirme(String data, TextView tv, String hangisi){
+        tv.setText(data);
+        if (hangisi == "isim")
+        {
+            anaMenuActivity.DataGuncelle("isim", data);
+        }
+        else if (hangisi =="boy")
+        {
+            anaMenuActivity.DataGuncelle("boy", data);
+        }
+        else if (hangisi =="kilo")
+        {
+            anaMenuActivity.DataGuncelle("kilo", data);
+        }
+        else
+        {
+            anaMenuActivity.DataGuncelle("yas", data);
+        }
     }
 }
