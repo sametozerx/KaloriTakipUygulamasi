@@ -115,8 +115,5 @@ public class UserFragment extends Fragment {
     public void userStringCevirme(String data, TextView tv, String hangisi){
         tv.setText(data);
         Intent intent = new Intent(getActivity(),AnaMenuActivity.class);
-        intent.putExtra("char1", data);
-        intent.putExtra("char2",hangisi);
-        startActivity(intent);
     }
 }

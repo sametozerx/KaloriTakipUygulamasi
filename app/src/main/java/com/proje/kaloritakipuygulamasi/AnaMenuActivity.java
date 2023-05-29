@@ -34,7 +34,6 @@ public class AnaMenuActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(AnaMenuActivity.this);
         Kullanici kullanici = ktdb.kullaniciDao().loadFirstKullanici();
-        Intent intent = getIntent();
 
 
         kullaniciAdi= kullanici.getKullaniciAdi();
