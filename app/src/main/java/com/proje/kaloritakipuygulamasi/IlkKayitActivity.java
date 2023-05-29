@@ -29,24 +29,24 @@ import java.util.Scanner;
 
 public class IlkKayitActivity extends AppCompatActivity {
 
-    AutoCompleteTextView autoCompleteTextView;
+    AutoCompleteTextView cinsBilgisi;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ilk_kayit);
-        autoCompleteTextView = findViewById(R.id.AutoCompleteCinsiyet);
+        cinsBilgisi = findViewById(R.id.AutoCompleteCinsiyet);
 
         String[] Cinsiyetler = new String[]{getString(R.string.erkek), getString(R.string.kadin)};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_item, Cinsiyetler);
-        autoCompleteTextView.setAdapter(adapter);
+        cinsBilgisi.setAdapter(adapter);
         //Devam Et'e basıldığında SQL içine bilgileri alır ve ana menüye geçer.
         // Bilgiler için elementler hazırlandı.
         TextInputEditText adBilgisi = (TextInputEditText) findViewById(R.id.inputAd);
         TextInputEditText yasBilgisi = (TextInputEditText) findViewById(R.id.inputYas);
         TextInputEditText kiloBilgisi = (TextInputEditText) findViewById(R.id.inputKilo);
         TextInputEditText boyBilgisi = (TextInputEditText) findViewById(R.id.inputBoy);
-        AutoCompleteTextView cinsBilgisi = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCinsiyet);
+        cinsBilgisi = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCinsiyet);
         MaterialButton button = (MaterialButton) findViewById(R.id.btnIlkKayit);
 
         button.setOnClickListener(new View.OnClickListener() {
