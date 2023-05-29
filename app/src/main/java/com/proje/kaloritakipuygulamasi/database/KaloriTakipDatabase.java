@@ -59,6 +59,7 @@ public abstract class KaloriTakipDatabase extends RoomDatabase {
     };
 
 
+
     public static KaloriTakipDatabase getKaloriTakipDatabase(Context context){
         if (kaloriTakipDatabase == null) {
             kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_3_4).allowMainThreadQueries().build();

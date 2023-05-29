@@ -1,6 +1,7 @@
 package com.proje.kaloritakipuygulamasi;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,24 +23,31 @@ import java.util.List;
 
 public class UserFragment extends Fragment {
 
+
+
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user, container, false);
+        KaloriTakipDatabase kaloridb = KaloriTakipDatabase.getKaloriTakipDatabase(requireContext());
+        Kullanici kullanici = kaloridb.kullaniciDao().loadFirstKullanici();
 
         TextView tv = (TextView) view.findViewById(R.id.varIsimAlani);
         TextView tv2 = (TextView) view.findViewById(R.id.varBoyAlani);
         TextView tv3 = (TextView) view.findViewById(R.id.varKiloAlani);
         TextView tv4 = (TextView) view.findViewById(R.id.varYasAlani);
 
-        if (getArguments()!= null)
-        {
-            tv.setText(getArguments().getString("ad"));
-            tv2.setText(Integer.toString(getArguments().getInt("boy")));
-            tv3.setText(Integer.toString(getArguments().getInt("kilo")));
-            tv4.setText(Integer.toString(getArguments().getInt("yas")));
-        }
+
+        tv.setText(kullanici.getKullaniciAdi().toString());
+        tv2.setText(Integer.toString(kullanici.getKullaniciBoy()));
+        tv3.setText(Integer.toString((kullanici.getKullaniciKilo())));
+        tv4.setText(Integer.toString((kullanici.getKullaniciYas())));
+
 
         // Kullanici verileri ekrana yüklenecek.
 
@@ -49,6 +57,10 @@ public class UserFragment extends Fragment {
             public void onClick(View v) {
                 DegistirmeIslemi(R.string.isimGirin, tv, "isim");
             }
+
+
+
+
         });
         // boy güncellemesi.
         Button bt2 = (Button) view.findViewById(R.id.btnBoyDegis);
@@ -95,11 +107,35 @@ public class UserFragment extends Fragment {
             builder.setView(input);
         }
 
+
+
+
+
+
         builder.setPositiveButton(R.string.tamam, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String user = input.getText().toString();
                 userStringCevirme(user, tv, hangisi);
+                KaloriTakipDatabase kaloridb = KaloriTakipDatabase.getKaloriTakipDatabase(requireContext());
+                if(hangisi=="isim") {
+                    kaloridb.kullaniciDao().updateFirstKullaniciAd(user);
+                } else if (hangisi=="boy") {
+                    kaloridb.kullaniciDao().updateFirstKullaniciBoy(Integer.parseInt(user));
+                }
+                else if (hangisi=="kilo") {
+                    kaloridb.kullaniciDao().updateFirstKullaniciKilo(Integer.parseInt(user));
+
+                }
+                else if (hangisi=="yas") {
+                    kaloridb.kullaniciDao().updateFirstKullaniciYas(Integer.parseInt(user));
+
+
+
+                }
+
+
+
             }
         });
 

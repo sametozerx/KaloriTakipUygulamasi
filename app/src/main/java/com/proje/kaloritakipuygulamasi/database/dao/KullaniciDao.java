@@ -41,7 +41,10 @@ public interface KullaniciDao {
     @Query("UPDATE kullanici set kullanici_kilo = :kilo WHERE kullaniciId = 1")
     void updateFirstKullaniciKilo(int kilo);
 
-    @Query("UPDATE kullanici set kullanici_gereken_kalori = :boy WHERE kullaniciId = 1")
-    void updateFirstKullaniciKalori(int boy);
+    @Query("UPDATE kullanici set kullanici_gereken_kalori = :kalori WHERE kullaniciId = 1")
+    void updateFirstKullaniciKalori(int kalori);
+
+    @Query("UPDATE kullanici set kullanici_yas = :yas WHERE kullaniciId = 1")
+    void updateFirstKullaniciYas(int yas);
 
 }
