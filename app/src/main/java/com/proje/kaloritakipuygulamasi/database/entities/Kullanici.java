@@ -28,7 +28,6 @@ public class Kullanici {
     @ColumnInfo(name = "kullanici_gereken_kalori")
     int kullaniciGerekenKalori;
 
-    String deviceId;
 
     public int getKullaniciId() {
         return kullaniciId;
@@ -86,11 +85,4 @@ public class Kullanici {
         this.kullaniciGerekenKalori = kullaniciGerekenKalori;
     }
 
-    public String getDeviceId() {
-        return deviceId;
-    }
-
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
-    }
 }
