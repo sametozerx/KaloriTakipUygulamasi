@@ -32,7 +32,7 @@ public interface KullaniciDao {
     @Query("SELECT kullanici_gereken_kalori FROM kullanici WHERE kullaniciId = :id")
     int LoadKullaniciKaloriById(int id);
 
-    @Query("UPDATE kullanici set kullanici_adi = :ad WHERE kullaniciId = :id")
+    @Query("UPDATE kullanici set kullanici_adi = :ad WHERE deviceId = :id")
     void updateKullaniciAdById(String ad, int id);
 
     @Query("UPDATE kullanici set kullanici_boy = :boy WHERE kullaniciId = :id")
@@ -43,5 +43,8 @@ public interface KullaniciDao {
 
     @Query("UPDATE kullanici set kullanici_gereken_kalori = :boy WHERE kullaniciId = :id")
     void updateKullaniciKaloriById(int boy, int id);
+
+    @Query("SELECT * FROM kullanici WHERE deviceId = :id")
+    Kullanici loadKullaniciByDeviceId(String id);
 
 }
