@@ -26,25 +26,22 @@ public interface KullaniciDao {
     @Query("SELECT * FROM kullanici")
     List<Kullanici> loadAllKullanicis();
 
-    @Query("SELECT * FROM kullanici WHERE kullaniciId = :id")
-    Kullanici loadKullaniciById(int id);
+    @Query("SELECT * FROM kullanici WHERE kullaniciId = 1")
+    Kullanici loadFirstKullanici();
 
-    @Query("SELECT kullanici_gereken_kalori FROM kullanici WHERE kullaniciId = :id")
-    int LoadKullaniciKaloriById(int id);
+    @Query("SELECT kullanici_gereken_kalori FROM kullanici WHERE kullaniciId = 1")
+    int LoadFirstKullaniciKalori();
 
-    @Query("UPDATE kullanici set kullanici_adi = :ad WHERE deviceId = :id")
-    void updateKullaniciAdById(String ad, int id);
+    @Query("UPDATE kullanici set kullanici_adi = :ad WHERE kullaniciId = 1")
+    void updateFirstKullaniciAd(String ad);
 
-    @Query("UPDATE kullanici set kullanici_boy = :boy WHERE kullaniciId = :id")
-    void updateKullaniciBoyById(int boy, int id);
+    @Query("UPDATE kullanici set kullanici_boy = :boy WHERE kullaniciId = 1")
+    void updateFirstKullaniciBoy(int boy);
 
-    @Query("UPDATE kullanici set kullanici_kilo = :kilo WHERE kullaniciId = :id")
-    void updateKullaniciKiloById(int kilo, int id);
+    @Query("UPDATE kullanici set kullanici_kilo = :kilo WHERE kullaniciId = 1")
+    void updateFirstKullaniciKilo(int kilo);
 
-    @Query("UPDATE kullanici set kullanici_gereken_kalori = :boy WHERE kullaniciId = :id")
-    void updateKullaniciKaloriById(int boy, int id);
-
-    @Query("SELECT * FROM kullanici WHERE deviceId = :id")
-    Kullanici loadKullaniciByDeviceId(String id);
+    @Query("UPDATE kullanici set kullanici_gereken_kalori = :boy WHERE kullaniciId = 1")
+    void updateFirstKullaniciKalori(int boy);
 
 }

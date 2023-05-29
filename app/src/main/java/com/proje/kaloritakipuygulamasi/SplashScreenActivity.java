@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 
 import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
@@ -15,6 +16,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     // Aşağıdaki komut satırları, splash screen'den IlkKayitAcitivity'ye geçişi sağlamaktadır.
     Handler h = new Handler();
+
+    KaloriTakipDatabase kaloriTakipDatabase = KaloriTakipDatabase.getKaloriTakipDatabase(this);
+    List<Kullanici> kullanicilar = kaloriTakipDatabase.kullaniciDao().loadAllKullanicis();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
