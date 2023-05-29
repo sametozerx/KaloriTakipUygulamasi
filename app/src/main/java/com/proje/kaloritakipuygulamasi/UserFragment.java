@@ -2,10 +2,12 @@ package com.proje.kaloritakipuygulamasi;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +22,6 @@ import java.util.List;
 
 public class UserFragment extends Fragment {
 
-    AnaMenuActivity anaMenuActivity = new AnaMenuActivity();
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,10 +33,13 @@ public class UserFragment extends Fragment {
         TextView tv3 = (TextView) view.findViewById(R.id.varKiloAlani);
         TextView tv4 = (TextView) view.findViewById(R.id.varYasAlani);
 
-        tv.setText(anaMenuActivity.kullaniciAdi);
-        tv2.setText(anaMenuActivity.kullaniciBoyu.toString());
-        tv3.setText(anaMenuActivity.kullaniciKilosu.toString());
-        tv4.setText(anaMenuActivity.kullaniciYasi.toString());
+        if (getArguments()!= null)
+        {
+            tv.setText(getArguments().getString("ad"));
+            tv2.setText(Integer.toString(getArguments().getInt("boy")));
+            tv3.setText(Integer.toString(getArguments().getInt("kilo")));
+            tv4.setText(Integer.toString(getArguments().getInt("yas")));
+        }
 
         // Kullanici verileri ekrana yüklenecek.
 
@@ -80,7 +83,17 @@ public class UserFragment extends Fragment {
         builder.setTitle(AlarmStringi);
 
         final EditText input = new EditText(getActivity());
-        builder.setView(input);
+
+        if(hangisi == "isim") {
+
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+        }
+        else{
+
+            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+            builder.setView(input);
+        }
 
         builder.setPositiveButton(R.string.tamam, new DialogInterface.OnClickListener() {
             @Override
@@ -101,21 +114,9 @@ public class UserFragment extends Fragment {
 
     public void userStringCevirme(String data, TextView tv, String hangisi){
         tv.setText(data);
-        if (hangisi == "isim")
-        {
-            anaMenuActivity.DataGuncelle("isim", data);
-        }
-        else if (hangisi =="boy")
-        {
-            anaMenuActivity.DataGuncelle("boy", data);
-        }
-        else if (hangisi =="kilo")
-        {
-            anaMenuActivity.DataGuncelle("kilo", data);
-        }
-        else
-        {
-            anaMenuActivity.DataGuncelle("yas", data);
-        }
+        Intent intent = new Intent(getActivity(),AnaMenuActivity.class);
+        intent.putExtra("char1", data);
+        intent.putExtra("char2",hangisi);
+        startActivity(intent);
     }
 }

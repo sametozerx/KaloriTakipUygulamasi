@@ -16,10 +16,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     // Aşağıdaki komut satırları, splash screen'den IlkKayitAcitivity'ye geçişi sağlamaktadır.
     Handler h = new Handler();
-
-    KaloriTakipDatabase kaloriTakipDatabase = KaloriTakipDatabase.getKaloriTakipDatabase(this);
-    List<Kullanici> kullanicilar = kaloriTakipDatabase.kullaniciDao().loadAllKullanicis();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

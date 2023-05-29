@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,19 +20,35 @@ import java.util.List;
 
 public class AnaMenuActivity extends AppCompatActivity{
 
-    KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(AnaMenuActivity.this);
-    List<Kullanici> kullaniciList = ktdb.kullaniciDao().loadAllKullanicis();
-    String kullaniciAdi = kullaniciList.get(0).getKullaniciAdi();
-    String kullaniciCinsiyeti = kullaniciList.get(0).getCinsiyet();
-    Integer kullaniciYasi = kullaniciList.get(0).getKullaniciYas();
-    Integer kullaniciBoyu = kullaniciList.get(0).getKullaniciBoy();
-    Integer kullaniciKilosu = kullaniciList.get(0).getKullaniciKilo();
+    KaloriTakipDatabase ktdb;
+    Kullanici kullanici;
+    String kullaniciAdi;
+    String kullaniciCinsiyeti;
+    Integer kullaniciYasi;
+    Integer kullaniciBoyu;
+    Integer kullaniciKilosu;
     ActivityAnaMenuBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(AnaMenuActivity.this);
+        Kullanici kullanici = ktdb.kullaniciDao().loadFirstKullanici();
+        Intent intent = getIntent();
+
+
+        kullaniciAdi= kullanici.getKullaniciAdi();
+        final String Tag = AnaMenuActivity.class.getName();
+        Log.i(Tag, kullaniciAdi);
+        kullaniciCinsiyeti= kullanici.getCinsiyet();
+        Log.i(Tag, kullaniciCinsiyeti);
+        kullaniciYasi= kullanici.getKullaniciYas();
+        Log.i(Tag, kullaniciYasi.toString());
+        kullaniciBoyu= kullanici.getKullaniciBoy();
+        Log.i(Tag, kullaniciBoyu.toString());
+        kullaniciKilosu= kullanici.getKullaniciKilo();
+        Log.i(Tag, kullaniciKilosu.toString());
+
         setContentView(R.layout.activity_ana_menu);
         binding = ActivityAnaMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -59,18 +78,35 @@ public class AnaMenuActivity extends AppCompatActivity{
 
     private void ReplaceFragment(Fragment fragment)
     {
-        // Veri transferi yapılıyor.
-        Bundle bundle=new Bundle();
-        bundle.putString("isim",kullaniciAdi);
-        bundle.putString("cinsiyet",kullaniciCinsiyeti);
+        Bundle bundle = new Bundle();
+        bundle.putString("ad", kullaniciAdi);
+        bundle.putString("cinsiyet", kullaniciCinsiyeti);
         bundle.putInt("yas",kullaniciYasi);
         bundle.putInt("boy",kullaniciBoyu);
         bundle.putInt("kilo",kullaniciKilosu);
         fragment.setArguments(bundle);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.Frame_Layout, fragment);
         fragmentTransaction.commit();
+    }
+    public void DataGuncelle(String hangisi, String data)
+    {
+        if (hangisi == "isim")
+        {
+            kullanici.setKullaniciAdi(hangisi);
+        }
+        else if (hangisi =="boy")
+        {
+            kullanici.setKullaniciBoy(Integer.parseInt(hangisi));
+        }
+        else if (hangisi =="kilo")
+        {
+            kullanici.setKullaniciKilo(Integer.parseInt(hangisi));
+        }
+        else
+        {
+            kullanici.setKullaniciYas(Integer.parseInt(hangisi));
+        }
     }
 }

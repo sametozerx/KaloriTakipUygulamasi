@@ -40,10 +40,11 @@ public abstract class KaloriTakipDatabase extends RoomDatabase {
     };
 
     public static  final Migration MIGRATION_2_3 = new Migration(2, 3) {
+
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
-            database.execSQL("ALTER TABLE kullanici ADD COLUMN deviceId TEXT");
         }
+
     };
 
     public static final Migration MIGRATION_3_4 = new Migration(3, 4) {
@@ -60,7 +61,7 @@ public abstract class KaloriTakipDatabase extends RoomDatabase {
 
     public static KaloriTakipDatabase getKaloriTakipDatabase(Context context){
         if (kaloriTakipDatabase == null) {
-            kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_2_3).allowMainThreadQueries().build();
+            kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_3_4).allowMainThreadQueries().build();
         }
         return kaloriTakipDatabase;
     }
