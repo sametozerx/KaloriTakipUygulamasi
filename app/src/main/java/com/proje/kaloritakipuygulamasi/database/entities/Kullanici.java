@@ -1,5 +1,6 @@
 package com.proje.kaloritakipuygulamasi.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -27,7 +28,6 @@ public class Kullanici {
     @ColumnInfo(name = "kullanici_gereken_kalori")
     int kullaniciGerekenKalori;
 
-    @PrimaryKey
     String deviceId;
 
     public int getKullaniciId() {

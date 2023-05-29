@@ -1,31 +1,19 @@
 package com.proje.kaloritakipuygulamasi;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
-import com.proje.kaloritakipuygulamasi.database.dao.KullaniciDao;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
 
-import java.lang.reflect.Array;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Scanner;
 
 public class IlkKayitActivity extends AppCompatActivity {
 
@@ -47,7 +35,7 @@ public class IlkKayitActivity extends AppCompatActivity {
         TextInputEditText kiloBilgisi = (TextInputEditText) findViewById(R.id.inputKilo);
         TextInputEditText boyBilgisi = (TextInputEditText) findViewById(R.id.inputBoy);
         cinsBilgisi = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCinsiyet);
-        MaterialButton button = (MaterialButton) findViewById(R.id.btnIlkKayit);
+        MaterialButton button = (MaterialButton) findViewById(R.id.btnIsimDegistir);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

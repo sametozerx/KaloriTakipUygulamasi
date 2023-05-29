@@ -151,7 +151,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnIlkKayit"
+                android:id="@+id/btnIsimDegistir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="72dp"
@@ -184,7 +184,7 @@
                 app:iconTint="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/btnIlkKayit" />
+                app:layout_constraintTop_toBottomOf="@+id/btnIsimDegistir" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnKiloDegis"

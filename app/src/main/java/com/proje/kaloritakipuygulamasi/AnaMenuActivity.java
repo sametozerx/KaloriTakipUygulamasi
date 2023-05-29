@@ -9,14 +9,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
+import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
 import com.proje.kaloritakipuygulamasi.databinding.ActivityAnaMenuBinding;
+
+import java.util.List;
 
 public class AnaMenuActivity extends AppCompatActivity{
 
+    KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(AnaMenuActivity.this);
+    List<Kullanici> kullaniciList = ktdb.kullaniciDao().loadAllKullanicis();
+    String kullaniciAdi = kullaniciList.get(0).getKullaniciAdi();
+    String kullaniciCinsiyeti = kullaniciList.get(0).getCinsiyet();
+    Integer kullaniciYasi = kullaniciList.get(0).getKullaniciYas();
+    Integer kullaniciBoyu = kullaniciList.get(0).getKullaniciBoy();
+    Integer kullaniciKilosu = kullaniciList.get(0).getKullaniciKilo();
     ActivityAnaMenuBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ana_menu);
         binding = ActivityAnaMenuBinding.inflate(getLayoutInflater());
@@ -45,11 +59,20 @@ public class AnaMenuActivity extends AppCompatActivity{
 
     }
 
-    private void ReplaceFragment(Fragment fragment){
+    private void ReplaceFragment(Fragment fragment)
+    {
+        // Veri transferi yapılıyor.
+        Bundle bundle=new Bundle();
+        bundle.putString("isim",kullaniciAdi);
+        bundle.putString("cinsiyet",kullaniciCinsiyeti);
+        bundle.putInt("yas",kullaniciYasi);
+        bundle.putInt("boy",kullaniciBoyu);
+        bundle.putInt("kilo",kullaniciKilosu);
+        fragment.setArguments(bundle);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.Frame_Layout, fragment);
         fragmentTransaction.commit();
     }
-
 }

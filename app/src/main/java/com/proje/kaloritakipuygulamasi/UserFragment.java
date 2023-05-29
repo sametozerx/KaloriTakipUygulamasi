@@ -13,6 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
+import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
+
+import java.util.List;
+
 public class UserFragment extends Fragment {
 
 
@@ -21,9 +26,29 @@ public class UserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user, container, false);
-        // isim güncellemesi.
+
+
         TextView tv = (TextView) view.findViewById(R.id.varIsimAlani);
-        Button bt = (Button) view.findViewById(R.id.btnIlkKayit);
+        TextView tv2 = (TextView) view.findViewById(R.id.varBoyAlani);
+        TextView tv3 = (TextView) view.findViewById(R.id.varKiloAlani);
+        TextView tv4 = (TextView) view.findViewById(R.id.varYasAlani);
+
+        if (getArguments()!= null)
+        {
+            String kullaniciAdi = getArguments().getString("isim");
+            Integer kullaniciYasi = getArguments().getInt("yas");
+            Integer kullaniciBoyu = getArguments().getInt("boy");
+            Integer kullaniciKilosu = getArguments().getInt("kilo");
+
+            tv.setText(kullaniciAdi);
+            tv2.setText(kullaniciYasi.toString());
+            tv3.setText(kullaniciKilosu.toString());
+            tv4.setText(kullaniciBoyu.toString());
+        }
+
+        // Kullanici verileri ekrana yüklenecek.
+
+        Button bt = (Button) view.findViewById(R.id.btnIsimDegistir);
         bt.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -31,7 +56,6 @@ public class UserFragment extends Fragment {
             }
         });
         // boy güncellemesi.
-        TextView tv2 = (TextView) view.findViewById(R.id.varBoyAlani);
         Button bt2 = (Button) view.findViewById(R.id.btnBoyDegis);
         bt2.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -40,7 +64,6 @@ public class UserFragment extends Fragment {
             }
         });
         // kilo güncellemesi.
-        TextView tv3 = (TextView) view.findViewById(R.id.varKiloAlani);
         Button bt3 = (Button) view.findViewById(R.id.btnKiloDegis);
         bt3.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -49,7 +72,6 @@ public class UserFragment extends Fragment {
             }
         });
         // yaş güncellemesi.
-        TextView tv4 = (TextView) view.findViewById(R.id.varYasAlani);
         Button bt4 = (Button) view.findViewById(R.id.btnYasDegis);
         bt4.setOnClickListener(new View.OnClickListener(){
             @Override
