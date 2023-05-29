@@ -49,23 +49,6 @@ public class IlkKayitActivity extends AppCompatActivity {
         AutoCompleteTextView cinsBilgisi = (AutoCompleteTextView) findViewById(R.id.AutoCompleteCinsiyet);
         MaterialButton button = (MaterialButton) findViewById(R.id.btnIlkKayit);
 
-
-        /*
-        // Aşağıdaki kod, ilk kayıt activity'nin çalışıp çalışmadığı test etmek içindir.
-        // List<> li satıra bullet point atıp debug ediniz, kullanıcı kayıtları gelmiş mi, bakınız.
-        // Test dışında açmayınız.
-
-        Button yedekbuton = (Button) findViewById(R.id.yedekbuton);
-
-        yedekbuton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(IlkKayitActivity.this);
-                List<Kullanici> kullanicis = ktdb.kullaniciDao().loadAllKullanicis();
-            }
-        });
-        */
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
