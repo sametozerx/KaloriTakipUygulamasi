@@ -52,6 +52,7 @@
         android:layout_marginTop="95dp"
         android:hint="@string/besin_ara"
         android:textColorHint="@color/black"
+        android:textColor="@color/black"
         app:boxBackgroundColor="@color/ilkKayitTextInput"
         app:layout_constraintEnd_toStartOf="@id/aramabuton"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +61,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputAd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 

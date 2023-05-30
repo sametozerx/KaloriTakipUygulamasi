@@ -77,35 +77,12 @@ public class AnaMenuActivity extends AppCompatActivity{
 
     private void ReplaceFragment(Fragment fragment)
     {
-        Bundle bundle = new Bundle();
-        bundle.putString("ad", kullaniciAdi);
-        bundle.putString("cinsiyet", kullaniciCinsiyeti);
-        bundle.putInt("yas",kullaniciYasi);
-        bundle.putInt("boy",kullaniciBoyu);
-        bundle.putInt("kilo",kullaniciKilosu);
-        fragment.setArguments(bundle);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.Frame_Layout, fragment);
         fragmentTransaction.commit();
     }
-    public void DataGuncelle(String hangisi, String data)
-    {
-        if (hangisi == "isim")
-        {
-            kullanici.setKullaniciAdi(hangisi);
-        }
-        else if (hangisi =="boy")
-        {
-            kullanici.setKullaniciBoy(Integer.parseInt(hangisi));
-        }
-        else if (hangisi =="kilo")
-        {
-            kullanici.setKullaniciKilo(Integer.parseInt(hangisi));
-        }
-        else
-        {
-            kullanici.setKullaniciYas(Integer.parseInt(hangisi));
-        }
-    }
+
+
 }
