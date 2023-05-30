@@ -1,12 +1,12 @@
 package com.proje.kaloritakipuygulamasi;
 
-import android.graphics.drawable.RotateDrawable;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -31,7 +31,19 @@ public class AnaMenuFragment extends Fragment {
         TextView tv2 = (TextView) view.findViewById(R.id.txtSelamlama);
         tv2.setText("İyi Günler, " + kullanici.getKullaniciAdi());
 
+        Button kahvaltibtn = (Button) view.findViewById(R.id.btnKahvaltiEkle);
+
+        kahvaltibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         return view;
     }
+
 
 }

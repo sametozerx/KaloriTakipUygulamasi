@@ -53,4 +53,8 @@
     <string name="erkekstring">E</string>
     <string name="kadınstring">K</string>
     <string name="varcinsiyetstring">C</string>
+    <string name="bosluk"></string>
+    <string name="geristring">geri</string>
+    <string name="arastring">Ara</string>
+    <string name="besin_ara">Besin ara...</string>
 </resources>
