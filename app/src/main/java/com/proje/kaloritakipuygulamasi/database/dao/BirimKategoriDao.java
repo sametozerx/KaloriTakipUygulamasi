@@ -26,9 +26,6 @@ public interface BirimKategoriDao {
     @Query("SELECT * FROM birim_kategori")
     List<BirimKategori> loadAllBirimKategoris();
 
-    @Query("SELECT * FROM birim_kategori WHERE birimKategoriId = :id")
-    BirimKategori loadBirimKategoriById(int id);
-
     @Query("SELECT birimKategoriId FROM birim_kategori WHERE birim_kategori_adi = :kategoriAd")
     int loadBirimKategoriIdByKategoriAd(String kategoriAd);
 

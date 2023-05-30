@@ -26,9 +26,6 @@ public interface OgunKategoriDao {
     @Query("SELECT * FROM ogun_kategori")
     List<OgunKategori> loadAllOgunKategoris();
 
-    @Query("SELECT * FROM ogun_kategori WHERE ogunKategoriId = :id")
-    OgunKategori loadOgunKategoriById(int id);
-
     @Query("SELECT ogunKategoriId FROM ogun_kategori WHERE ogun_kategori_adi = :ad")
     int loadOgunKategoriIdByOgunKategoriAd(String ad);
 }
