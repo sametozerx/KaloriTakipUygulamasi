@@ -28,7 +28,7 @@ public interface OgunDao {
 
     @Query("SELECT * FROM ogun WHERE ogunId = :id")
     Ogun loadOgunByOgunId(int id);
-
+    
     @Query("SELECT ogunId FROM ogun WHERE ogun_adi = :ad")
     int loadOgunIdByOgunAd(String ad);
 
