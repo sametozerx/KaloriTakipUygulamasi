@@ -41,12 +41,14 @@ public class UserFragment extends Fragment {
         TextView tv2 = (TextView) view.findViewById(R.id.varBoyAlani);
         TextView tv3 = (TextView) view.findViewById(R.id.varKiloAlani);
         TextView tv4 = (TextView) view.findViewById(R.id.varYasAlani);
+        TextView tv5 = (TextView) view.findViewById(R.id.varcinsiyet);
 
 
         tv.setText(kullanici.getKullaniciAdi().toString());
         tv2.setText(Integer.toString(kullanici.getKullaniciBoy()));
         tv3.setText(Integer.toString((kullanici.getKullaniciKilo())));
         tv4.setText(Integer.toString((kullanici.getKullaniciYas())));
+        tv5.setText(kullanici.getCinsiyet().toString().substring(0,1));
 
 
         // Kullanici verileri ekrana yüklenecek.
@@ -86,8 +88,37 @@ public class UserFragment extends Fragment {
                 DegistirmeIslemi(R.string.yasGirin, tv4, "yas");
             }
         });
+
+        //cinsiyet güncellemesi
+
+        Button bt5 = (Button) view.findViewById(R.id.btnerkek);
+        Button bt6 = (Button) view.findViewById(R.id.btnkadin);
+
+        bt5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                kaloridb.kullaniciDao().updateFirstKullaniciCinsiyet("Erkek");
+                tv5.setText("E");
+
+
+            }
+        });
+
+        bt6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                kaloridb.kullaniciDao().updateFirstKullaniciCinsiyet("Kadın");
+                tv5.setText("K");
+
+
+            }
+        });
+
         return view;
     }
+
+
+
 
     public void DegistirmeIslemi(int AlarmStringi, TextView tv, String hangisi)
     {
@@ -106,9 +137,6 @@ public class UserFragment extends Fragment {
             input.setInputType(InputType.TYPE_CLASS_NUMBER);
             builder.setView(input);
         }
-
-
-
 
 
 

@@ -3,6 +3,7 @@ package com.proje.kaloritakipuygulamasi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -19,7 +20,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        if ((getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES) {
+            setContentView(R.layout.activity_splash_screen_night);
+        } else {
+            setContentView(R.layout.activity_splash_screen);
+        }
 
         h.postDelayed(new Runnable() {
             @Override

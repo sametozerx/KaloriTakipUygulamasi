@@ -47,4 +47,6 @@ public interface KullaniciDao {
     @Query("UPDATE kullanici set kullanici_yas = :yas WHERE kullaniciId = 1")
     void updateFirstKullaniciYas(int yas);
 
+    @Query("UPDATE kullanici set cinsiyet = :cinsiyet WHERE kullaniciId = 1")
+    void updateFirstKullaniciCinsiyet(String cinsiyet);
 }
