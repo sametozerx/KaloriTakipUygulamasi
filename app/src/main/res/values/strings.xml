@@ -49,4 +49,8 @@
     <string name="yasGirin">Yaş Girin</string>
     <string name="iptal">İptal</string>
     <string name="tamam">Tamam</string>
+    <string name="textviewcinsiyet">Cinsiyet:</string>
+    <string name="erkekstring">E</string>
+    <string name="kadınstring">K</string>
+    <string name="varcinsiyetstring">C</string>
 </resources>

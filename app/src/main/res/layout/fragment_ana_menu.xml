@@ -21,7 +21,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:padding="20sp"
-        android:text="İyi günler, {ad}!"
+        android:text="İyi Günler"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
