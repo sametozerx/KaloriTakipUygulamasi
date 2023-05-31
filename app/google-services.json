@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21730852140",
+    "project_id": "kaloritakipuygulamasi",
+    "storage_bucket": "kaloritakipuygulamasi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21730852140:android:c4c33c864bf0e1d61e4089",
+        "android_client_info": {
+          "package_name": "com.proje.kaloritakipuygulamasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5FOvo78Mr3dhe8SLk1L0wQuuSewZnRF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

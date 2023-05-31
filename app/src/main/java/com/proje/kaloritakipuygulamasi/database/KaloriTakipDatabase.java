@@ -9,27 +9,14 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.proje.kaloritakipuygulamasi.database.dao.BirimKategoriDao;
 import com.proje.kaloritakipuygulamasi.database.dao.KullaniciDao;
-import com.proje.kaloritakipuygulamasi.database.dao.OgunDao;
-import com.proje.kaloritakipuygulamasi.database.dao.OgunKategoriDao;
-import com.proje.kaloritakipuygulamasi.database.dao.OgunKayitDao;
-import com.proje.kaloritakipuygulamasi.database.entities.BirimKategori;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
-import com.proje.kaloritakipuygulamasi.database.entities.Ogun;
-import com.proje.kaloritakipuygulamasi.database.entities.OgunKategori;
-import com.proje.kaloritakipuygulamasi.database.entities.OgunKayit;
 
-@Database(entities = {Kullanici.class, BirimKategori.class, OgunKategori.class, Ogun.class, OgunKayit.class}, version = 4 )
+@Database(entities = {Kullanici.class}, version = 5 )
 public abstract class KaloriTakipDatabase extends RoomDatabase {
     private static KaloriTakipDatabase kaloriTakipDatabase;
 
     public abstract KullaniciDao kullaniciDao();
-    public abstract OgunKategoriDao ogunKategoriDao();
-    public abstract BirimKategoriDao birimKategoriDao();
-    public abstract OgunDao ogunDao();
-    public abstract OgunKayitDao ogunKayitDao();
-
     private static final String databaseName = "cal.db";
 
     public static  final Migration MIGRATION_1_2 = new Migration(1, 2) {
@@ -58,11 +45,21 @@ public abstract class KaloriTakipDatabase extends RoomDatabase {
         }
     };
 
+    public static final Migration MIGRATION_4_5 = new Migration(4, 5) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("DROP TABLE IF EXISTS `ogun_kayit`");
+            database.execSQL("DROP TABLE IF EXISTS `ogun`");
+            database.execSQL("DROP TABLE IF EXISTS `birim_kategori`");
+            database.execSQL("DROP TABLE IF EXISTS `ogun_kategori`");
+        }
+    };
+
 
 
     public static KaloriTakipDatabase getKaloriTakipDatabase(Context context){
         if (kaloriTakipDatabase == null) {
-            kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_3_4).allowMainThreadQueries().build();
+            kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_4_5).allowMainThreadQueries().build();
         }
         return kaloriTakipDatabase;
     }
