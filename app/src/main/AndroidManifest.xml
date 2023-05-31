@@ -12,8 +12,13 @@
         android:theme="@style/Theme.KaloriTakipUygulamasi"
         tools:targetApi="31">
         <activity
-            android:name=".BesineklemeActivity"
+            android:name=".OgunCrudActivity"
             android:exported="false" />
+        <activity
+            android:name=".BesineklemeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity
             android:name=".AnaMenuActivity"
             android:exported="false" />

@@ -4,7 +4,6 @@ public class Ogun {
     private String ogunAd;
     private int ogunKalori;
     private String ogunBirim;
-    private String ogunKategori;
 
     public Ogun(){
 
@@ -14,7 +13,7 @@ public class Ogun {
         this.ogunAd = ogunAd;
         this.ogunKalori = ogunKalori;
         this.ogunBirim = ogunBirim;
-        this.ogunKategori = ogunKategori;
+
     }
 
     public String getOgunAd() {
@@ -41,11 +40,5 @@ public class Ogun {
         this.ogunBirim = ogunBirim;
     }
 
-    public String getOgunKategori() {
-        return ogunKategori;
-    }
 
-    public void setOgunKategori(String ogunKategori) {
-        this.ogunKategori = ogunKategori;
-    }
 }

@@ -24,7 +24,7 @@
     <string name="takvim">Takvim</string>
     <string name="kullanici">Kullanıcı</string>
     <string name="ayarlar">Ayarlar</string>
-    <string name="ogunler">Öğünler</string>
+    <string name="ogunler">Yedikleriniz</string>
     <string name="Kahvalti">Kahvaltı</string>
     <string name="ogleYemegi">Öğle Yemeği</string>
     <string name="araOgun">Ara Öğün</string>
@@ -57,4 +57,5 @@
     <string name="geristring">geri</string>
     <string name="arastring">Ara</string>
     <string name="besin_ara">Besin ara...</string>
+    <string name="yemekekleme">Ekle</string>
 </resources>

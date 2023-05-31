@@ -33,10 +33,17 @@ public class AnaMenuFragment extends Fragment {
         tv2.setText("İyi Günler, " + kullanici.getKullaniciAdi());
 
         Button kahvaltibtn = (Button) view.findViewById(R.id.btnKahvaltiEkle);
-        Button ogleyemegibtn = (Button) view.findViewById(R.id.btnOgleYemegiEkle);
-        Button aksamyemegibtn = (Button) view.findViewById(R.id.btnAksamYemegiEkle);
-        Button araogunbtn = (Button) view.findViewById(R.id.btnAraOgunEkle);
 
+        Button butongecis = (Button) view.findViewById(R.id.button2);
+
+        butongecis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), OgunCrudActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
         kahvaltibtn.setOnClickListener(new View.OnClickListener() {
@@ -44,44 +51,16 @@ public class AnaMenuFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
-                intent.putExtra("ogun", "kahvalti");
                 startActivity(intent);
 
             }
         });
 
-        ogleyemegibtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
-                intent.putExtra("ogun", "ogleyemegi");
-                startActivity(intent);
 
-            }
-        });
 
-        aksamyemegibtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
-                intent.putExtra("ogun", "aksamyemegi");
-                startActivity(intent);
 
-            }
-        });
-
-        araogunbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
-                intent.putExtra("ogun", "araogun");
-                startActivity(intent);
-
-            }
-        });
 
 
         if("Erkek".equals(kullanici.getCinsiyet())){

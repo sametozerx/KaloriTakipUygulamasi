@@ -44,6 +44,22 @@
         app:layout_constraintStart_toEndOf="@+id/tfieldAdGir"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/eklemebuton"
+        android:layout_width="104dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/yemekekleme"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ekle"
+        app:iconGravity="start"
+        app:iconTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yemeklistesi" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tfieldAdGir"
         android:layout_width="260dp"
@@ -67,13 +83,15 @@
 
 
     <ListView
-        android:layout_width="375dp"
-        android:layout_height="492dp"
+        android:id="@+id/yemeklistesi"
+        android:layout_width="376dp"
+        android:layout_height="457dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
