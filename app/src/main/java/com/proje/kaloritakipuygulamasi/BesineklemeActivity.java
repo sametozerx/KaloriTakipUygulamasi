@@ -9,6 +9,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,12 +21,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
+import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
 import com.proje.kaloritakipuygulamasi.database.firebase_entity.Ogun;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BesineklemeActivity extends AppCompatActivity {
 
@@ -32,14 +37,29 @@ public class BesineklemeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_besinekleme);
-
+        List<Integer> lockedItems = new ArrayList<>();
+        KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(this);
         FirebaseApp.initializeApp(this);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("ogunler");
 
         ListView yemeklistesi = (ListView) findViewById(R.id.yemeklistesi);
         List<String> datalist = new ArrayList<>();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(BesineklemeActivity.this, android.R.layout.simple_list_item_1, datalist);
+        Button ekleButonu = (Button) findViewById(R.id.eklemebuton);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(BesineklemeActivity.this, android.R.layout.simple_list_item_1, datalist)
+        {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                if (lockedItems.contains(position)) {
+                    // Kilitlenmiş öğeleri etkisiz hale getirin.
+                    view.setEnabled(false);
+                    view.setClickable(false);
+                }
+                return view;
+            }
+        };
 
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -68,6 +88,13 @@ public class BesineklemeActivity extends AppCompatActivity {
             }
         });
 
+        yemeklistesi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                lockedItems.add(position);
+            }
+        });
 
         EditText searchEditText = findViewById(R.id.inputAd);
 
@@ -123,6 +150,14 @@ public class BesineklemeActivity extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        ekleButonu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Kullanici kullanici = ktdb.kullaniciDao().loadFirstKullanici();
             }
         });
     }

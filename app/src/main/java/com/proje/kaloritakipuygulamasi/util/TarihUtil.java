@@ -22,4 +22,10 @@ public class TarihUtil {
         cal.setTime(new Date());
         return cal.get(Calendar.YEAR);
     }
+    public static String getDate(){
+        String gun= Integer.toString(getGun());
+        String ay= Integer.toString(getAy());
+        String yil= Integer.toString(getYil());
+        return gun+ay+yil;
+    }
 }

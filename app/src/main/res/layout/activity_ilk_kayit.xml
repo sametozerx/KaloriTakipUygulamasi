@@ -51,7 +51,7 @@
             android:text="@string/ad"
             android:textColor="?attr/colorOnSecondary"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/tfieldAdGir"
+            app:layout_constraintBottom_toTopOf="@+id/tfieldBesinAra"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -79,10 +79,10 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txtYasiniziGir"
-            app:layout_constraintTop_toBottomOf="@+id/tfieldAdGir" />
+            app:layout_constraintTop_toBottomOf="@+id/tfieldBesinAra" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfieldAdGir"
+            android:id="@+id/tfieldBesinAra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -114,7 +114,7 @@
             app:boxBackgroundColor="@color/ilkKayitTextInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tfieldAdGir">
+            app:layout_constraintTop_toTopOf="@id/tfieldBesinAra">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputYas"
