@@ -2,6 +2,7 @@ package com.proje.kaloritakipuygulamasi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Database;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,10 +32,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+
 public class BesineklemeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseApp.initializeApp(this);
+        FirebaseApp database = FirebaseApp.getInstance();
+        DatabaseReference dbRef = database.getReference();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_besinekleme);
         List<Integer> lockedItems = new ArrayList<>();

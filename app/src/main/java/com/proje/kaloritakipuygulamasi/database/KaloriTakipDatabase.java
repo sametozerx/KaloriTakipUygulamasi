@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.proje.kaloritakipuygulamasi.database.dao.KullaniciDao;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
 
-@Database(entities = {Kullanici.class}, version = 5 )
+@Database(entities = {Kullanici.class}, version = 6 )
 public abstract class KaloriTakipDatabase extends RoomDatabase {
     private static KaloriTakipDatabase kaloriTakipDatabase;
 
@@ -55,11 +55,18 @@ public abstract class KaloriTakipDatabase extends RoomDatabase {
         }
     };
 
+    public static final Migration MIGRATION_5_6 = new Migration(5, 6) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE IF NOT EXISTS `ogun_kayit` (`ogunKayitId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `kalori` INTEGER, `gun` INTEGER, `ay` INTEGER, `yil` INTEGER)");
+        }
+    };
+
 
 
     public static KaloriTakipDatabase getKaloriTakipDatabase(Context context){
         if (kaloriTakipDatabase == null) {
-            kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_4_5).allowMainThreadQueries().build();
+            kaloriTakipDatabase = Room.databaseBuilder(context, KaloriTakipDatabase.class, databaseName).addMigrations(MIGRATION_5_6).allowMainThreadQueries().build();
         }
         return kaloriTakipDatabase;
     }
