@@ -1,10 +1,14 @@
 package com.proje.kaloritakipuygulamasi;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -19,6 +23,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.proje.kaloritakipuygulamasi.database.entities.OgunKayit;
 import com.proje.kaloritakipuygulamasi.database.dao.OgunKayitDao;
 import com.google.android.material.textfield.TextInputEditText;
@@ -61,6 +67,8 @@ public class BesineklemeActivity extends AppCompatActivity {
             }
         };
 
+
+
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,7 +84,6 @@ public class BesineklemeActivity extends AppCompatActivity {
                     }
                     String kalori = Integer.toString(ogunsnapshot.child("ogunKalori").getValue(Integer.class));
                     datalist.add(yemekismi+"  |  "+yemekbirim+"  |  "+"Kalorisi: "+kalori);
-                    Log.d("TAG", "Kullanıcı adı: " + yemekismi);
                 }
 
                 yemeklistesi.setAdapter(adapter);
@@ -145,6 +152,9 @@ public class BesineklemeActivity extends AppCompatActivity {
         geribtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(BesineklemeActivity.this,AnaMenuActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -188,10 +198,10 @@ public class BesineklemeActivity extends AppCompatActivity {
                 String yiyecek = datalist.get(indis);
                 String[] parts = yiyecek.split("\\|");
                 String kalori = parts[2].replaceAll("[^0-9]", "");
-                Log.i("Kalori", "kalori: "+kalori);
                 cal = Integer.parseInt(kalori);
                 Log.i("Kalori", "cal: "+cal);
                 ktdb.ogunKayitDao().insertOgunKayitKaloris(cal, TarihUtil.getGun(),TarihUtil.getAy(),TarihUtil.getYil());
+                Toast.makeText(BesineklemeActivity.this, parts[0] + "eklendi",Toast.LENGTH_SHORT).show();
                 }
         });
     }

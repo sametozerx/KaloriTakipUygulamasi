@@ -120,12 +120,12 @@
         android:layout_marginEnd="20dp"
         android:layout_weight="1"
         android:src="@drawable/ogun_kahvalti"
-        app:layout_constraintEnd_toStartOf="@+id/btnKahvaltiEkle"
+        app:layout_constraintEnd_toStartOf="@+id/btnBesinEkle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnKahvaltiEkle"
+        android:id="@+id/btnBesinEkle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
@@ -148,9 +148,13 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="301dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"

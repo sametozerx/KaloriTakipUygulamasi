@@ -3,6 +3,8 @@ package com.proje.kaloritakipuygulamasi;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +17,6 @@ import android.widget.TextView;
 import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
 import com.proje.kaloritakipuygulamasi.util.TarihUtil;
-
-import org.w3c.dom.Text;
 
 
 public class AnaMenuFragment extends Fragment {
@@ -40,7 +40,7 @@ public class AnaMenuFragment extends Fragment {
         tvalinancal.setText(Integer.toString(alinanCal));
 
 
-        Button kahvaltibtn = (Button) view.findViewById(R.id.btnKahvaltiEkle);
+        Button kahvaltibtn = (Button) view.findViewById(R.id.btnBesinEkle);
 
         Button butongecis = (Button) view.findViewById(R.id.button2);
 
@@ -60,7 +60,7 @@ public class AnaMenuFragment extends Fragment {
 
                 Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
                 startActivity(intent);
-
+                getActivity().finish();
             }
         });
 
