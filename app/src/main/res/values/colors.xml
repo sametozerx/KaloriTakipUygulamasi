@@ -10,4 +10,6 @@
     <color name="dark_1">#112D4E</color>
     <color name="dark_2">#3F72AF</color>
     <color name="dark_3">#DBE2EF</color>
+    <color name="pressed_color">#6578D6</color>
+    <color name="selected_color">#FFFFFF</color>
 </resources>

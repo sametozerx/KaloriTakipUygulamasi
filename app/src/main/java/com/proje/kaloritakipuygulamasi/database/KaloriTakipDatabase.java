@@ -10,13 +10,17 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.proje.kaloritakipuygulamasi.database.dao.KullaniciDao;
+import com.proje.kaloritakipuygulamasi.database.dao.OgunKayitDao;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
+import com.proje.kaloritakipuygulamasi.database.entities.OgunKayit;
+import com.proje.kaloritakipuygulamasi.database.firebase_entity.Ogun;
 
-@Database(entities = {Kullanici.class}, version = 6 )
+@Database(entities = {Kullanici.class, OgunKayit.class}, version = 6 )
 public abstract class KaloriTakipDatabase extends RoomDatabase {
     private static KaloriTakipDatabase kaloriTakipDatabase;
 
     public abstract KullaniciDao kullaniciDao();
+    public abstract OgunKayitDao ogunKayitDao();
     private static final String databaseName = "cal.db";
 
     public static  final Migration MIGRATION_1_2 = new Migration(1, 2) {

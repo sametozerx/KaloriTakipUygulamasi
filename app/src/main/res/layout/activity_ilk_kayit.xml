@@ -96,7 +96,7 @@
             app:layout_constraintTop_toTopOf="@id/txtTaniyalim">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputAd"
+                android:id="@+id/inputBesinAdi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"/>

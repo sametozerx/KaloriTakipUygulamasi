@@ -2,21 +2,26 @@ package com.proje.kaloritakipuygulamasi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Database;
+import androidx.core.content.ContextCompat;
+import androidx.room.Room;
 
-import android.content.Intent;
+import android.graphics.Color;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
+import com.proje.kaloritakipuygulamasi.database.entities.OgunKayit;
+import com.proje.kaloritakipuygulamasi.database.dao.OgunKayitDao;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,46 +30,33 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
-import com.proje.kaloritakipuygulamasi.database.firebase_entity.Ogun;
+import com.proje.kaloritakipuygulamasi.util.TarihUtil;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DatabaseReference;
 
 public class BesineklemeActivity extends AppCompatActivity {
 
+    int indis = -1;
+    int cal;
+    TextInputEditText tfieldBesinArama = (TextInputEditText) findViewById(R.id.inputBesinAdi);
+    ListView yemeklistesi = (ListView) findViewById(R.id.yemeklistesi);
+    List<String> datalist = new ArrayList<>();
+    Button ekleButonu = (Button) findViewById(R.id.eklemebuton);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FirebaseApp.initializeApp(this);
-        FirebaseApp database = FirebaseApp.getInstance();
-        DatabaseReference dbRef = database.getReference();
-
+        KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_besinekleme);
-        List<Integer> lockedItems = new ArrayList<>();
-        KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(this);
         FirebaseApp.initializeApp(this);
+        yemeklistesi.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("ogunler");
-
-        ListView yemeklistesi = (ListView) findViewById(R.id.yemeklistesi);
-        List<String> datalist = new ArrayList<>();
-        Button ekleButonu = (Button) findViewById(R.id.eklemebuton);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(BesineklemeActivity.this, android.R.layout.simple_list_item_1, datalist)
         {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-
-                if (lockedItems.contains(position)) {
-                    // Kilitlenmiş öğeleri etkisiz hale getirin.
-                    view.setEnabled(false);
-                    view.setClickable(false);
-                }
                 return view;
             }
         };
@@ -100,11 +92,32 @@ public class BesineklemeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                lockedItems.add(position);
+                if (indis == position) {
+                    // Zaten seçili olan öğe tıklandığında seçimini kaldır
+                    indis = -1;
+                    view.setBackgroundColor(Color.TRANSPARENT);
+                }
+                else
+                {
+                    // Yeni bir öğe seçildiğinde seçimi güncelle
+                    if (indis != -1)
+                    {
+                        // Önceki seçimi kaldır
+                        View previousSelectedView = yemeklistesi.getChildAt(indis);
+                        if (previousSelectedView != null)
+                        {
+                            previousSelectedView.setBackgroundColor(Color.TRANSPARENT);
+                        }
+                    }
+                    indis = position;
+                    Log.i("Deneme","Seçilen indis:"+indis);
+                    view.setBackgroundColor(ContextCompat.getColor(BesineklemeActivity.this, R.color.selected_color));
+                }
+
             }
         });
 
-        EditText searchEditText = findViewById(R.id.inputAd);
+        EditText searchEditText = findViewById(R.id.inputBesinAdi);
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -162,10 +175,36 @@ public class BesineklemeActivity extends AppCompatActivity {
         });
 
         ekleButonu.setOnClickListener(new View.OnClickListener() {
+
+            /* Aşağıdaki kod şunları yapar:
+            * 1) seçilen index'in başını keser, ve hangi yiyeceğin olduğunun adını alır.
+            * 2) bu adı database'e gönderir, ve bu yiyeceğin kalorisini alır.
+            * 3) bu kaloriyi tarihiyle beraber database'e ekler.
+            * */
             @Override
             public void onClick(View v)
             {
                 Kullanici kullanici = ktdb.kullaniciDao().loadFirstKullanici();
+                String yiyecek = datalist.get(indis);
+                int ayrac = yiyecek.indexOf(" |");
+                yiyecek = yiyecek.substring(0,ayrac).trim();
+                Log.i("Yiyecek","Yiyecek adı:" + yiyecek);
+                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference ogunRef = dbRef.child("ogunler").child(yiyecek).child("ogunKalori");
+                ogunRef.addListenerForSingleValueEvent(new ValueEventListener()
+                {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int Kalori = snapshot.getValue(Integer.class);
+                        cal = Kalori;
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                ktdb.ogunKayitDao().insertOgunKayitKaloris(cal, TarihUtil.getGun(),TarihUtil.getAy(),TarihUtil.getYil());
             }
         });
     }

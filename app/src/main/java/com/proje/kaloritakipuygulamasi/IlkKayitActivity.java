@@ -30,7 +30,7 @@ public class IlkKayitActivity extends AppCompatActivity {
         cinsBilgisi.setAdapter(adapter);
         //Devam Et'e basıldığında SQL içine bilgileri alır ve ana menüye geçer.
         // Bilgiler için elementler hazırlandı.
-        TextInputEditText adBilgisi = (TextInputEditText) findViewById(R.id.inputAd);
+        TextInputEditText adBilgisi = (TextInputEditText) findViewById(R.id.inputBesinAdi);
         TextInputEditText yasBilgisi = (TextInputEditText) findViewById(R.id.inputYas);
         TextInputEditText kiloBilgisi = (TextInputEditText) findViewById(R.id.inputKilo);
         TextInputEditText boyBilgisi = (TextInputEditText) findViewById(R.id.inputBoy);

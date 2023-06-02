@@ -24,7 +24,7 @@ public interface OgunKayitDao {
     @Query("SELECT SUM(kalori) FROM ogun_kayit WHERE gun = :gun AND ay = :ay AND yil = :yil")
     int loadAllKaloriByDailies(int gun, int ay, int yil);
 
-    @Query("INSERT INTO ogun_kayit VALUES (:kalori, :gun, :ay, :yil)")
+    @Query("INSERT INTO ogun_kayit(kalori, gun, ay, yil) VALUES (:kalori, :gun, :ay, :yil)")
     void insertOgunKayitKaloris(int kalori, int gun, int ay, int yil);
 
 }
