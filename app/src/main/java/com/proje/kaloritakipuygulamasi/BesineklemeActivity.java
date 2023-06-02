@@ -39,16 +39,16 @@ public class BesineklemeActivity extends AppCompatActivity {
 
     int indis = -1;
     int cal;
-    TextInputEditText tfieldBesinArama = (TextInputEditText) findViewById(R.id.inputBesinAdi);
-    ListView yemeklistesi = (ListView) findViewById(R.id.yemeklistesi);
     List<String> datalist = new ArrayList<>();
-    Button ekleButonu = (Button) findViewById(R.id.eklemebuton);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         KaloriTakipDatabase ktdb = KaloriTakipDatabase.getKaloriTakipDatabase(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_besinekleme);
         FirebaseApp.initializeApp(this);
+        TextInputEditText tfieldBesinArama = (TextInputEditText) findViewById(R.id.inputBesinAdi);
+        ListView yemeklistesi = (ListView) findViewById(R.id.yemeklistesi);
+        Button ekleButonu = (Button) findViewById(R.id.eklemebuton);
         yemeklistesi.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbref = database.getReference().child("ogunler");
