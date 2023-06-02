@@ -1,11 +1,16 @@
 package com.proje.kaloritakipuygulamasi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -83,6 +88,8 @@ public class AnaMenuActivity extends AppCompatActivity{
         fragmentTransaction.replace(R.id.Frame_Layout, fragment);
         fragmentTransaction.commit();
     }
+
+
 
 
 }
