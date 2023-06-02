@@ -189,9 +189,10 @@ public class BesineklemeActivity extends AppCompatActivity {
                 int ayrac = yiyecek.indexOf(" |");
                 yiyecek = yiyecek.substring(0,ayrac).trim();
                 Log.i("Yiyecek","Yiyecek adı:" + yiyecek);
-                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+                ktdb.ogunKayitDao().insertOgunKayitKaloris(cal, TarihUtil.getGun(),TarihUtil.getAy(),TarihUtil.getYil());
+                /*DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
                 DatabaseReference ogunRef = dbRef.child("ogunler").child(yiyecek).child("ogunKalori");
-                ogunRef.addListenerForSingleValueEvent(new ValueEventListener()
+                ogunRef.addValueEventListener(new ValueEventListener()
                 {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -203,9 +204,8 @@ public class BesineklemeActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
-                });
-                ktdb.ogunKayitDao().insertOgunKayitKaloris(cal, TarihUtil.getGun(),TarihUtil.getAy(),TarihUtil.getYil());
-            }
+                });*/
+                }
         });
     }
 

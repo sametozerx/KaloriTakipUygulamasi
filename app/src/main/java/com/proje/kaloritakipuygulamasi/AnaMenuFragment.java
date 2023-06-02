@@ -26,12 +26,12 @@ public class AnaMenuFragment extends Fragment {
         KaloriTakipDatabase kaloridb = KaloriTakipDatabase.getKaloriTakipDatabase(requireContext());
         Kullanici kullanici = kaloridb.kullaniciDao().loadFirstKullanici();
         int alinanCal = kaloridb.ogunKayitDao().loadAllKaloriByDailies(TarihUtil.getGun(),TarihUtil.getAy(),TarihUtil.getYil());
-        int gerekenCal = 0;
+        float gerekenCal = 0;
         View view = inflater.inflate(R.layout.fragment_ana_menu, container, false);
         TextView textYuzdeKalori = (TextView) view.findViewById(R.id.txtYuzdeKalori);
         ProgressBar pb = (ProgressBar) view.findViewById(R.id.progressBar);
         TextView gerekenkal = (TextView) view.findViewById(R.id.txtVarGerekenCal);
-        int progress;
+        float progress;
 
         TextView tv2 = (TextView) view.findViewById(R.id.txtSelamlama);
         tv2.setText("İyi Günler, " + kullanici.getKullaniciAdi());
@@ -65,14 +65,14 @@ public class AnaMenuFragment extends Fragment {
         });
 
         if("Erkek".equals(kullanici.getCinsiyet())){
-            gerekenCal = (int)(66.5 + (13.75* kullanici.getKullaniciKilo()) + (5*kullanici.getKullaniciBoy()) - (6.77* kullanici.getKullaniciYas()));
-            gerekenkal.setText(Integer.toString(gerekenCal));
+            gerekenCal = (float) (66.5 + (13.75* kullanici.getKullaniciKilo()) + (5*kullanici.getKullaniciBoy()) - (6.77* kullanici.getKullaniciYas()));
+            gerekenkal.setText(Integer.toString((int) gerekenCal));
 
         }
 
         else if ("Kadın".equals(kullanici.getCinsiyet())) {
-            gerekenCal = (int)(655.1 + (9.56* kullanici.getKullaniciKilo()) + (1.85*kullanici.getKullaniciBoy()) - (4.67* kullanici.getKullaniciYas()));
-            gerekenkal.setText(Integer.toString(gerekenCal));
+            gerekenCal = (float)(655.1 + (9.56* kullanici.getKullaniciKilo()) + (1.85*kullanici.getKullaniciBoy()) - (4.67* kullanici.getKullaniciYas()));
+            gerekenkal.setText(Integer.toString((int) gerekenCal));
 
         }
 
@@ -80,8 +80,8 @@ public class AnaMenuFragment extends Fragment {
         Log.i("progress", "Progress="+progress);
         Log.i("alinancal", "alinancal="+alinanCal);
         Log.i("gerekencal", "gerekencal="+gerekenCal);
-        pb.setProgress(progress);
-        textYuzdeKalori.setText("%" + progress);
+        pb.setProgress((int) progress);
+        textYuzdeKalori.setText("%" + (int) progress);
 
         return view;
     }
