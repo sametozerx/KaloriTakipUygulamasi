@@ -3,169 +3,350 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:colorSecondary"
-    tools:context=".AnaMenuActivity"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:colorSecondary"
+        tools:context=".AnaMenuActivity"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <TextView
-        android:id="@+id/txtSelamlama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:padding="20sp"
-        android:text="İyi Günler"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/txtSelamlama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="20sp"
+            android:text="İyi Günler"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtYuzdeKalori"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="245dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="84dp"
-        android:text="%100"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        <TextView
+            android:id="@+id/txtYuzdeKalori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="245dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="84dp"
+            android:text="%100"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
-    <TextView
-        android:id="@+id/txtAlinanCal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="13dp"
-        android:layout_weight="1"
-        android:text="@string/alinanCal"
-        app:layout_constraintBottom_toTopOf="@+id/txtGerekenCal"
-        app:layout_constraintEnd_toStartOf="@+id/txtVarAlinanCal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/txtAlinanCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="117dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="13dp"
+            android:layout_weight="1"
+            android:text="@string/alinanCal"
+            app:layout_constraintBottom_toTopOf="@+id/txtGerekenCal"
+            app:layout_constraintEnd_toStartOf="@+id/txtVarAlinanCal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtGerekenCal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="16dp"
-        android:layout_weight="1"
-        android:text="@string/GerekenCal"
-        app:layout_constraintEnd_toStartOf="@+id/txtVarGerekenCal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAlinanCal" />
+        <TextView
+            android:id="@+id/txtGerekenCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:text="@string/GerekenCal"
+            app:layout_constraintEnd_toStartOf="@+id/txtVarGerekenCal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAlinanCal" />
 
-    <TextView
-        android:id="@+id/txtVarGerekenCal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
-        android:text="0 Cal"
-        app:layout_constraintStart_toEndOf="@+id/txtGerekenCal"
-        app:layout_constraintTop_toBottomOf="@+id/txtVarAlinanCal" />
+        <TextView
+            android:id="@+id/txtVarGerekenCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:text="0 Cal"
+            app:layout_constraintStart_toEndOf="@+id/txtGerekenCal"
+            app:layout_constraintTop_toBottomOf="@+id/txtVarAlinanCal" />
 
-    <TextView
-        android:id="@+id/txtVarAlinanCal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="44dp"
-        android:text="0 Cal"
-        app:layout_constraintStart_toEndOf="@+id/txtAlinanCal"
-        app:layout_constraintTop_toBottomOf="@+id/txtSelamlama" />
+        <TextView
+            android:id="@+id/txtVarAlinanCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="44dp"
+            android:text="0 Cal"
+            app:layout_constraintStart_toEndOf="@+id/txtAlinanCal"
+            app:layout_constraintTop_toBottomOf="@+id/txtSelamlama" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="50"
-        android:progressDrawable="@drawable/custom_progress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtVarGerekenCal"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="50"
+            android:progressDrawable="@drawable/custom_progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtVarGerekenCal"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="312dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="312dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/picKahvalti"
-        android:layout_width="160dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_weight="1"
-        android:src="@drawable/ogun_kahvalti"
-        app:layout_constraintEnd_toStartOf="@+id/btnBesinEkle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <LinearLayout
+            android:id="@+id/OgunlerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnBesinEkle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="55dp"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/besinEkle"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="16dp"
-        app:icon="@drawable/baseline_arrow_forward_24"
-        app:iconGravity="end"
-        app:iconTint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/picKahvalti"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="301dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.25"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/ogunler"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+                <TextView
+                    android:id="@+id/txtOgunler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/ogunler"
+                    android:textSize="34sp" />
+            </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/picKahvalti"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/ogun_kahvalti" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtKahvaltiAd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="@string/Kahvalti" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnKahvaltiEkle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/besinEkle"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/white"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/baseline_arrow_forward_24"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/picOgleYemegi"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/ogun_oglen" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtOgleYemekAd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="@string/ogleYemegi" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOgleYemegiEkle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/besinEkle"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/white"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/baseline_arrow_forward_24"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/picAraOgun"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/ogun_ara" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtAraOgunAd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="@string/araOgun" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAraOgunEkle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/besinEkle"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/white"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/baseline_arrow_forward_24"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/picAksamYemegi"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/ogun_aksam" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtAksamYemegiAd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|top"
+                        android:text="@string/aksamYemegi" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAksamYemegiEkle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="@string/besinEkle"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/white"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/baseline_arrow_forward_24"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

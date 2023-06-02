@@ -41,9 +41,6 @@ public class AnaMenuFragment extends Fragment {
     NotificationManagerCompat notificationManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        NotificationManagerCompat not2 = NotificationManagerCompat.from(getContext());
-        notificationManager=not2;
         KaloriTakipDatabase kaloridb = KaloriTakipDatabase.getKaloriTakipDatabase(requireContext());
         Kullanici kullanici = kaloridb.kullaniciDao().loadFirstKullanici();
         int alinanCal = kaloridb.ogunKayitDao().loadAllKaloriByDailies(TarihUtil.getGun(), TarihUtil.getAy(), TarihUtil.getYil());
@@ -54,23 +51,6 @@ public class AnaMenuFragment extends Fragment {
         TextView gerekenkal = (TextView) view.findViewById(R.id.txtVarGerekenCal);
         Context context = getActivity();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Kanal kimliği
-            String channelId = "my_channel_id";
-            // Kanal adı
-            String channelName = "My Channel";
-            // Bildirim önem düzeyi
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-
-            NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
-
-            // Kanal açıklaması (isteğe bağlı)
-            channel.setDescription("My Channel Description");
-
-            // Bildirim yöneticisi tarafından kanal oluşturma
-            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
 
         String channelId = "bildirimKanali";
         TextView tv2 = (TextView) view.findViewById(R.id.txtSelamlama);
@@ -80,10 +60,49 @@ public class AnaMenuFragment extends Fragment {
         tvalinancal.setText(Integer.toString(alinanCal));
 
 
-        Button kahvaltibtn = (Button) view.findViewById(R.id.btnBesinEkle);
+        Button kahvaltibtn = (Button) view.findViewById(R.id.btnKahvaltiEkle);
+        kahvaltibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+        Button oglenbtn = (Button) view.findViewById(R.id.btnOgleYemegiEkle);
+        oglenbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+        Button arabtn = (Button) view.findViewById(R.id.btnAraOgunEkle);
+        arabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+        Button aksambtn = (Button) view.findViewById(R.id.btnAksamYemegiEkle);
+        aksambtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(requireActivity(), BesineklemeActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
 
         Button butongecis = (Button) view.findViewById(R.id.button2);
-
         butongecis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,6 +144,7 @@ public class AnaMenuFragment extends Fragment {
         {
             Toast.makeText(getContext(),"Gereğinden fazla yemek yediniz. Artık kalori almamanızı öneririz.", Toast.LENGTH_LONG);
         }
+
         return view;
     }
 
