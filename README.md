@@ -16,4 +16,5 @@ Uygulama içi görüntüler:
 ![besin ekleme](https://github.com/sametozerx/KaloriTakipUygulamasi/assets/101431097/c8dc1c03-c612-4ac3-88e3-44b22a70d5bb)
 
 Koyu tema seçeneği:
+
 ![koyu tema](https://github.com/sametozerx/KaloriTakipUygulamasi/assets/101431097/3c7bacee-92ba-4199-bb8a-5eba6c01b1f1)
