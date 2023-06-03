@@ -46,8 +46,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/eklemebuton"
-        android:layout_width="104dp"
-        android:layout_height="58dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/yemekekleme"
         android:textColor="@color/black"
         app:backgroundTint="@color/white"
