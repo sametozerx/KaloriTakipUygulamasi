@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
-
 import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
-
 import java.util.List;
 
 public class SplashScreenActivity extends AppCompatActivity {

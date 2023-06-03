@@ -1,18 +1,15 @@
 package com.proje.kaloritakipuygulamasi;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.proje.kaloritakipuygulamasi.database.KaloriTakipDatabase;
 import com.proje.kaloritakipuygulamasi.database.entities.Kullanici;
-
 import java.util.List;
 
 public class IlkKayitActivity extends AppCompatActivity {
